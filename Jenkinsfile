@@ -1,10 +1,12 @@
 pipeline {
-    agent { label 'dev-agent' }
-    
+    agent any
     stages{
         stage('Code'){
             steps {
-                git url: 'https://github.com/khushixxxx/node.git', branch: 'master'
+                git(
+                    url: 'https://github.com/khushixxxx/node.git', 
+                    branch: 'main'
+                )
             }
         }
         stage('Build and Test'){
