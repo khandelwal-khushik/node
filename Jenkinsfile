@@ -11,7 +11,7 @@ pipeline {
         }
         stage('Build and Test'){
             steps {
-                sh 'docker build . -t nodejs/node-todo-app-cicd:latest' 
+                    sh 'docker build . -t trainwithshubham/node-todo-app-cicd:latest'   
             }
         }
         stage('Login and Push Image'){
