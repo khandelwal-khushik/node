@@ -11,21 +11,20 @@ pipeline {
         }
         stage('Build and Test'){
             steps {
-                    sh 'docker build . -t trainwithshubham/node-todo-app-cicd:latest'   
-            }
+                    sh 'sudo docker build . -t khushikk/khushi-node:1.1.0' 
+         }
         }
         stage('Login and Push Image'){
             steps {
                 echo 'logging in to docker hub and pushing image..'
-               withDockerRegistry([ credentialsId: "6544de7e-17a4-4576-9b9b-e86bc1e4f903", url: "" ]) {
-                    sh "docker login -u ${env.dockerHubUser} -p ${env.dockerHubPassword}"
-                    sh "docker push trainwithshubham/node-todo-app-cicd:latest"
+               withDockerRegistry([ credentialsId: "jenkins-github", url: "" ]) {
+               sh "sudo docker push khushikk/khushi-node:1.1.0"
                 }
             }
         }
         stage('Deploy'){
             steps {
-                sh 'docker-compose down && docker-compose up -d'
+                sh 'sudo docker compose down && sudo docker compose up -d'
             }
         }
     }
