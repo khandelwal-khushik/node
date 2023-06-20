@@ -2,10 +2,10 @@
 Run these commands:
 
 
-`sudo apt install nodejs`
+`sudo yum install nodejs`
 
 
-`sudo apt install npm`
+`sudo yum install npm`
 
 
 `npm install`
